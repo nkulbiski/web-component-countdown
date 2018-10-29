@@ -1,0 +1,87 @@
+<!--
+Author:       Neil Kulbiski
+Author URI:   http://kulbiski.com
+
+Copyright 2018 Neil Kulbiski
+This software is provided 'as is'. Any liability will be limited to the original purchase price.
+This software is without any warranty or implied warranty.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Component Countdown</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <template id="k-countdown">
+            <style>
+                #k-countdown {
+                    width: 100%;
+                    background: rgba(0,0,0,.7);
+                    color: #fff;
+                    text-align: center;
+                    padding: 2% 0;
+
+                }
+                div.countdown {
+                    display: inline-block;
+                    margin:0;
+                    padding: 0 1%;
+                    position: relative;
+                }
+
+                div.countdown:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: -.5%;
+                    width: 1px;
+                    height: 40%;
+                    margin-top: -20%;
+                    background: orange;
+                }
+                div.countdown:last-of-type:after {
+                    background: none;
+                }
+
+                .value {
+                    font-size: 2.5em;
+                }
+
+                .label {
+                    display: block;
+                    text-transform: uppercase;
+                    font-size: 1em;
+                }
+            </style>
+            <div id="k-countdown">
+                <div class="error-message"></div>
+                <div class="ended-message"></div>
+                <div id="timer">
+                    <div class="countdown days">
+                        <span class="value">00</span>
+                        <span class="label">days</span>
+                    </div> 
+                    <div class="countdown hours">
+                        <span class="value">00</span>
+                        <span class="label">hours</span>
+                    </div> 
+                    <div class="countdown mins">
+                        <span class="value">00</span>
+                        <span class="label">mins</span>
+                    </div> 
+                    <div class="countdown secs">
+                        <span class="value">00</span>
+                        <span class="label">secs</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    <k-countdown ended-message="Custom ended message" date="2018/10/31 18:30" error-message="Custom error message!"></k-countdown>
+
+    <script src="js/k-countdown.js" ></script>
+</body>
+</html>
